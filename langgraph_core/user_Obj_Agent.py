@@ -1,5 +1,6 @@
 import sys
 import json
+import re
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from .state import Graph_state 
@@ -28,7 +29,7 @@ Your entire response MUST be a single string containing a valid JSON representat
 - `projects`: (list[dict]) A list of project objects, each with `name`, `description`, `technologies_used`.
 
 ## CRITICAL RULES
-1.  **PYTHON-COMPATIBLE JSON:** Your output must be raw JSON, starting with `{` and ending with `}`. Do not include any explanatory text, comments, or markdown like ` ```json `.
+1.  **PYTHON-COMPATIBLE JSON:** Your output must be raw JSON, starting with `{{` and ending with `}}`. Do not include any explanatory text, comments `.
 2.  **NO HALLUCINATION:** If information is missing, use JSON `null` or empty lists `[]`.
 3.  **ACCURACY:** The data must accurately reflect the resume content.
 """
@@ -59,6 +60,16 @@ def user_object_agent(state: Graph_state) -> Graph_state:
 
     response = llm.invoke(messages)
     raw_json_str = response.content.strip()
+    raw_json_str = re.sub(r"^```(json)?", "", raw_json_str)
+    raw_json_str = re.sub(r"```$", "", raw_json_str)
+
+    print("RAW JSON Preview:", repr(raw_json_str))
+
+    if not raw_json_str:
+      raise ValueError("Model response was empty; cannot parse JSON.")
+
+    print(raw_json_str)
+
     state["messages"].append(AIMessage(content=response.content))
 
     try:
