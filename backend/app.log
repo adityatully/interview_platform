@@ -904,3 +904,208 @@ Ready to get started? Just upload your resume and we can begin!
 2025-06-26 22:41:15 - INFO - root - Session ID: b1b118a0-b25d-4efc-9ce3-57bfcca7f1ba, User Query: hey, Model: gemini-2.0-flash
 2025-06-26 22:44:10 - INFO - root - Session ID: b1b118a0-b25d-4efc-9ce3-57bfcca7f1ba, User Query: now, Model: gemini-2.0-flash
 2025-06-26 22:45:45 - INFO - root - Session ID: b1b118a0-b25d-4efc-9ce3-57bfcca7f1ba, User Query: now, Model: gemini-2.0-flash
+2025-06-28 00:33:41 - INFO - root - Session ID: 6f547d45-8163-4ad9-926d-777c0a76506a, User Query: heyy what can you do, Model: gemini-2.0-flash
+2025-06-28 00:33:47 - INFO - root - Session ID: 6f547d45-8163-4ad9-926d-777c0a76506a, AI Response: "**Welcome! I'm your AI Interview Navigator, here to help you ace your next interview.**
+
+This platform gives you a chance to practice in a realistic, stress-free environment. The process is simple and is designed to feel just like a real interview:
+
+**1. 📄 Upload Your Resume**
+This is the most important step! I'll instantly analyze your unique skills, projects, and experience to create a truly personalized interview for you.
+
+**2. 🎙️ Start Your Voice Interview**
+When you're ready, you'll have a **real-time voice conversation** with one of my specialized AI interviewers. It's designed to be interactive and conversational.
+
+**3. 🤖 Meet the AI Interview Panel**
+Based on what you want to practice, you can be interviewed by a team of experts:
+- **The DSA Coder:** Asks data structures and algorithms questions.
+- **The System Architect:** Gives you system design challenges.
+- **The Project Manager:** Dives deep into the projects on your resume.
+- **The Tech Screener:** Asks about your specific skills (like Python, React, AWS, etc.).
+- **The HR Specialist:** Focuses on behavioral and situational questions.
+
+**4. 💡 Get Instant Feedback**
+After each answer, you'll get constructive feedback on your clarity, correctness, and overall approach to help you improve.
+
+**Ready to get started? Just upload your resume and we can begin!**"
+2025-06-28 00:34:03 - INFO - root - Session ID: 6f547d45-8163-4ad9-926d-777c0a76506a, User Query: I hav uploadd , Model: gemini-2.0-flash
+2025-06-28 00:34:08 - INFO - root - Session ID: 6f547d45-8163-4ad9-926d-777c0a76506a, AI Response: Resume parsed successfully Should we begin the interview??.
+2025-06-28 00:34:13 - INFO - root - Session ID: 6f547d45-8163-4ad9-926d-777c0a76506a, User Query: yes we can, Model: gemini-2.0-flash
+2025-06-28 00:34:14 - WARNING - langchain_google_genai.chat_models - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 45
+}
+].
+2025-06-28 00:38:02 - INFO - root - Session ID: 6f547d45-8163-4ad9-926d-777c0a76506a, User Query: heyy, Model: gemini-2.0-flash
+2025-06-28 00:38:09 - WARNING - langchain_google_genai.chat_models - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 50
+}
+].
+2025-06-28 00:39:29 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: heyy, Model: gemini-2.0-flash
+2025-06-28 00:39:29 - WARNING - langchain_google_genai.chat_models - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 30
+}
+].
+2025-06-28 00:39:34 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: Hey there! 👋 I'm your AI Interview Navigator. Ready to start practicing for your interview?
+
+To get started, upload your resume. This will allow me to tailor the interview experience specifically to you!
+
+If you're wondering what this platform can do, here's a quick rundown:
+
+**Welcome! I'm your AI Interview Navigator, here to help you ace your next interview.**
+
+This platform gives you a chance to practice in a realistic, stress-free environment. The process is simple and is designed to feel just like a real interview:
+
+**1. 📄 Upload Your Resume**
+This is the most important step! I'll instantly analyze your unique skills, projects, and experience to create a truly personalized interview for you.
+
+**2. 🎙️ Start Your Voice Interview**
+When you're ready, you'll have a **real-time voice conversation** with one of my specialized AI interviewers. It's designed to be interactive and conversational.
+
+**3. 🤖 Meet the AI Interview Panel**
+Based on what you want to practice, you can be interviewed by a team of experts:
+- **The DSA Coder:** Asks data structures and algorithms questions.
+- **The System Architect:** Gives you system design challenges.
+- **The Project Manager:** Dives deep into the projects on your resume.
+- **The Tech Screener:** Asks about your specific skills (like Python, React, AWS, etc.).
+- **The HR Specialist:** Focuses on behavioral and situational questions.
+
+**4. 💡 Get Instant Feedback**
+After each answer, you'll get constructive feedback on your clarity, correctness, and overall approach to help you improve.
+
+**Ready to get started? Just upload your resume and we can begin!**
+2025-06-28 00:39:39 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: I have uploaded my resume , Model: gemini-2.0-flash
+2025-06-28 00:39:40 - WARNING - langchain_google_genai.chat_models - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 19
+}
+].
+2025-06-28 00:41:00 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: heyy, Model: gemini-2.0-flash
+2025-06-28 00:41:00 - WARNING - langchain_google_genai.chat_models - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 200
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 59
+}
+].
+2025-06-28 00:42:46 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: hryyy, Model: gemini-2.0-flash
+2025-06-28 00:42:54 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: Resume parsed successfully Should we begin the interview??.
+2025-06-28 00:42:58 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: yes start , Model: gemini-2.0-flash
+2025-06-28 00:43:05 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: is generating questions. please wait
+2025-06-28 00:43:12 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: okayyy, Model: gemini-2.0-flash
+2025-06-28 00:43:14 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: : Alright! Based on your resume, let's kick things off with a question about data structures and algorithms.
+
+Imagine you are building a feature for a social media platform that suggests friends to users. Given a user's network of friends and their friends' friends, describe how you would implement an algorithm to suggest potential new friends, avoiding suggesting someone they are already connected to. Discuss the time and space complexity of your approach.
+2025-06-28 00:43:49 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: I would follow a recoomendaton system model , Model: gemini-2.0-flash
+2025-06-28 00:45:28 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: hiieee, Model: gemini-2.0-flash
+2025-06-28 00:45:36 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: 
+2025-06-28 00:45:46 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: I have uploaded my resume , Model: gemini-2.0-flash
+2025-06-28 00:45:51 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: Resume parsed successfully Should we begin the interview??.
+2025-06-28 00:45:54 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: yes, Model: gemini-2.0-flash
+2025-06-28 00:45:56 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: is generating questions. please wait
+2025-06-28 00:45:59 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: ok, Model: gemini-2.0-flash
+2025-06-28 00:46:02 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: : Okay, let's dive right in!
+
+Based on your resume, I see you have experience with [mention a specific skill or technology from the resume]. Could you tell me about a challenging project where you utilized this skill? What were the key obstacles you faced, and how did you overcome them? I'm particularly interested in how you approached problem-solving and decision-making in a complex environment.
+2025-06-28 00:46:30 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: I had issue with reactjs, Model: gemini-2.0-flash
+2025-06-28 00:46:33 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: 
+2025-06-28 00:46:37 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, User Query: ??, Model: gemini-2.0-flash
+2025-06-28 00:46:40 - INFO - root - Session ID: d0e0ee25-07c9-4d9a-9229-b3ff98e25a4d, AI Response: 
+2025-06-28 00:48:52 - INFO - root - Session ID: dd0d6065-9724-4b0c-a1c5-d9728c26dad8, User Query: hey I want to have an interview , Model: gemini-2.0-flash
+2025-06-28 00:48:54 - INFO - root - Session ID: dd0d6065-9724-4b0c-a1c5-d9728c26dad8, AI Response: "Great! I'm excited to help you prepare.
+
+To start, please upload your resume. I'll analyze it to tailor the interview experience to your specific skills and experience. Once that's done, you can choose which type of interview you'd like to practice. We have experts in Data Structures and Algorithms, System Design, Project Management, Technical Screening, and even HR-style behavioral interviews.
+
+Just let me know when your resume is uploaded and we can begin!"
+2025-06-28 00:49:05 - INFO - root - Session ID: dd0d6065-9724-4b0c-a1c5-d9728c26dad8, User Query: I have uploaded , Model: gemini-2.0-flash
+2025-06-28 00:49:09 - INFO - root - Session ID: dd0d6065-9724-4b0c-a1c5-d9728c26dad8, AI Response: Resume parsed successfully Should we begin the interview??.
+2025-06-28 00:49:15 - INFO - root - Session ID: dd0d6065-9724-4b0c-a1c5-d9728c26dad8, User Query: yes we can , Model: gemini-2.0-flash
+2025-06-28 00:52:06 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: heeyyy, Model: gemini-2.0-flash
+2025-06-28 00:52:13 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: Resume parsed successfully Should we begin the interview??.
+2025-06-28 00:52:16 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: yes, Model: gemini-2.0-flash
+2025-06-28 00:52:25 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: ```tool_code
+print(resume_data_parsed)
+```
+2025-06-28 00:52:49 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: I dint face any isu, Model: gemini-2.0-flash
+2025-06-28 00:52:53 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: 
+2025-06-28 00:53:45 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: oh okay, Model: gemini-2.0-flash
+2025-06-28 00:53:48 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: 

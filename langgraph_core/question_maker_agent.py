@@ -70,10 +70,10 @@ def list_parser(question_list: list[str]):
 def question_maker_agent(state : Graph_state)->Graph_state:
     """ generates 10 questons and appends it ot the question list """
     user_object = state.get("user_object", None)
-    print("user_object")
-    print(user_object)
+    #print("user_object")
+    #print(user_object)
     interview_type = state.get("interview_type", None) # always fixed for now
-    print(interview_type)
+    #print(interview_type)
     user_object_json_str = json.dumps(user_object, indent=2)
     full_prompt = QUESTION_MAKER_PROMPT.format(
         interview_type = interview_type,
@@ -81,13 +81,13 @@ def question_maker_agent(state : Graph_state)->Graph_state:
     )
     messages = [HumanMessage(content=full_prompt)]
     # chat history dosent need to be passed
-    print(messages)
+    #print(messages)
     response = llm.invoke(messages)
 
     content = response.content.strip()
 
-    print(content)
-    print(type(content))
+    #print(content)
+    #print(type(content))
 
     question_list = list_parser(content.split("\n"))
     print("Question List::", question_list)

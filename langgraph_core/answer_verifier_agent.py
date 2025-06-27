@@ -68,11 +68,11 @@ You MUST follow these steps in order to make a fair and consistent evaluation:
 {format_instructions}
 
 ## Example 1: Follow-up Needed
-{{
+
   "reasoning": "The candidate described the 'what' but not the 'why' of their architectural choice.",
   "verdict": "needs_follow_up",
   "feedback": "Ask the candidate to elaborate on the specific reasons behind choosing Pinecone over other vector stores for that project."
-}}
+
 """
 
 def answer_verifier_agent(state: Graph_state)->Graph_state:
@@ -91,7 +91,9 @@ def answer_verifier_agent(state: Graph_state)->Graph_state:
     print(current_question_index)
 
     question_asked = question_list[current_question_index]
+    print(question_asked)
     candidate_answer = current_user_query
+    print(candidate_answer)
     parser = JsonOutputParser(pydantic_object=AnswerAnalysisResult)
 
     full_prompt = ANSWER_VERIFIER_SYSTEM_PROMT.format(

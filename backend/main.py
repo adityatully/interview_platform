@@ -66,8 +66,10 @@ def chat(query_input:InterviewQueryInput):
     insert_interview_chat(session_id , query_input.query , answer)
     question_list = final_state.get("question_list", [])
     feedback_list = final_state.get("feedback_list", [])
-    for question, feedback in zip(question_list, feedback_list):
-        insert_question_feedback(session_id, question, feedback)
+
+    #skipping ecuae of dict for now 
+    #for question, feedback in zip(question_list, feedback_list):
+    #    insert_question_feedback(session_id, question, feedback)
             
     logging.info(f"Session ID: {session_id}, AI Response: {answer}")
     return InterviewQueryResponse(answer=answer, session_id=session_id)
