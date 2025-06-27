@@ -3,6 +3,9 @@ from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from .state import Graph_state
 from dotenv import load_dotenv
+from pydantic import BaseModel, Field
+from langchain_core.output_parsers import JsonOutputParser
+import json
 load_dotenv()
 
 # Initialize your LLM client
@@ -11,6 +14,12 @@ llm = ChatGoogleGenerativeAI(
     temperature=0,
 )
 
+class AnswerAnalysisResult(BaseModel):
+    reasoning: str = Field(" A brief, one-sentence explanation of your evaluation")
+    verdict: str = Field("Either 'sufficient' or 'needs_follow_up'")
+    feedback: str = Field("Instruction for the question asker agent to ask the next question")
+
+
 ANSWER_VERIFIER_SYSTEM_PROMT = """
 # ROLE & GOAL
 You are the **Answer Verifier Agent**, an expert AI acting as a senior technical hiring manager.
@@ -18,10 +27,15 @@ You are the **Answer Verifier Agent**, an expert AI acting as a senior technical
  if the answer is sufficient or if a follow-up question is necessary to probe for deeper understanding.
 
 # CONTEXT & INPUTS
+
 You will be provided with the following information for your evaluation:
 - `question_asked`: The exact question that the candidate was asked.
 - `candidate_answer`: The candidate's verbatim response.
-- the chat history of the interveiw 
+- the chat history of the interveiw
+
+here are the inputs :
+question_asked : {question_asked}
+candidate_answer : {candidate_answer}
 
 You MUST follow these steps in order to make a fair and consistent evaluation:
 
@@ -36,8 +50,8 @@ You MUST follow these steps in order to make a fair and consistent evaluation:
 - Based on your analysis, make an initial `verdict`. Choose one:
   - `"sufficient"`: The candidate demonstrated solid understanding and answered the question fully.
   - `"needs_follow_up"`: The answer was weak, incomplete, ambiguous, or raises further questions that need clarification.
-  - You have been provided the interview history for reference , Note you can only return follow up question as a verdict , 
-  once per main question , if you have already done so , you need to return sufficient 
+  - You have been provided the interview history for reference , Note you can only return follow up question as a verdict ,
+  once per main question , if you have already done so , you need to return sufficient
 
 **Step 3: Apply the Follow-up Rule.**
 - This is a critical logic check.
@@ -50,28 +64,15 @@ You MUST follow these steps in order to make a fair and consistent evaluation:
 
 
 # 📝 OUTPUT SPECIFICATION
-Your entire output MUST be a single, valid JSON object. Do not include any other text.
-The JSON object must contain these three keys:
 
-1.  `"reasoning"`: (string) A brief, one-sentence explanation of your evaluation. (e.g., "The candidate explained the concept well but did not provide a concrete example.")
-2.  `"verdict"`: (string) Your final decision, either `"sufficient"` or `"needs_follow_up"`.
-3.  `"feedback_for_asker"`: (string) The instruction for the question asker agent to ask the next question.
+{format_instructions}
 
 ## Example 1: Follow-up Needed
-```json
-{
+{{
   "reasoning": "The candidate described the 'what' but not the 'why' of their architectural choice.",
   "verdict": "needs_follow_up",
   "feedback": "Ask the candidate to elaborate on the specific reasons behind choosing Pinecone over other vector stores for that project."
-}
-
-here are the inputs : 
-
-question_asked : {question_asked}
-candidate_answer : {candidate_answer}
-
-
-
+}}
 """
 
 def answer_verifier_agent(state: Graph_state)->Graph_state:
@@ -85,27 +86,36 @@ def answer_verifier_agent(state: Graph_state)->Graph_state:
     current_question_index = state.get("current_question_index", 0)
     current_user_query = state.get("current_user_query", "")
 
+    print("Answer Verifier Agent")
+    print(question_list)
+    print(current_question_index)
+
     question_asked = question_list[current_question_index]
     candidate_answer = current_user_query
+    parser = JsonOutputParser(pydantic_object=AnswerAnalysisResult)
 
     full_prompt = ANSWER_VERIFIER_SYSTEM_PROMT.format(
         question_asked=question_asked,
-        candidate_answer=candidate_answer
+        candidate_answer=candidate_answer,
+        format_instructions=parser.get_format_instructions()
     )
 
-    messages = [SystemMessage(content = full_prompt)]
+    messages = [HumanMessage(content = full_prompt)]
 
     for msg in state["messages"]:
         if isinstance(msg, HumanMessage):
             messages.append(HumanMessage(content=msg.content))
         elif isinstance(msg, AIMessage):
-            messages.append(AIMessage(content=msg.content)) 
+            messages.append(AIMessage(content=msg.content))
 
 
     response = llm.invoke(messages)
+    print("LLM Response::", response.content.strip())
+    print("LLM Response::", response.content.strip()[1:-1])
 
     try:
-        result = json.loads(response.content.strip())
+        result = json.loads(response.content.strip()[1:-1])
+        print("RESULT::", result)
     except json.JSONDecodeError:
         result = {
             "reasoning": "invalid json",
@@ -113,14 +123,14 @@ def answer_verifier_agent(state: Graph_state)->Graph_state:
             "feedback": "failed , proceed to next question."
         }
 
-      # implement feedback count tooo store them for the user in the list 
+      # implement feedback count tooo store them for the user in the list
 
     feedback_list.append(result["feedback"])
     state["feedback_list"] = feedback_list
     state["feedback"] = result["feedback"]
     state["feedback_reason"] = result["reasoning"]
     state["previous_question"] = question_asked
-    state["previous_feedback"] = feedback
+    state["previous_feedback"] = result["feedback"]
 
     if verdict == "sufficient":
         state["current_question_index"] += 1
@@ -138,10 +148,9 @@ def answer_verifier_agent(state: Graph_state)->Graph_state:
 
 
 
-    
-
-    
 
 
-    
-    
+
+
+
+

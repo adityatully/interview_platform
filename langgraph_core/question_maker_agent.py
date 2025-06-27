@@ -5,6 +5,7 @@ from .state import Graph_state
 import json
 import re
 from dotenv import load_dotenv
+# from rich import print
 load_dotenv()
 
 
@@ -18,10 +19,10 @@ llm = ChatGoogleGenerativeAI(
 QUESTION_MAKER_PROMPT = """
 You are "InteR-ViewBot," an expert AI agent acting as a seasoned hiring manager and technical architect. Your primary function is to generate a set of insightful, deeply technical, and situationally relevant interview questions. You must meticulously analyze the provided candidate information and interview context to craft questions that accurately assess the candidate's depth of knowledge and practical skills.
 
-here are the given inputs 
+here are the given inputs
 
 # INPUTS
-interview_type:{interview_type} 
+interview_type:{interview_type}
 user_object: {user_object}
 # CORE METHODOLOGY
 Follow this process step-by-step:
@@ -41,7 +42,7 @@ Follow this process step-by-step:
 
 # INPUTS
 - **Interview Type:**  (e.g., "Technical Screening," "Behavioral," "System Design," "AI/ML Deep Dive")
-- **User Object:**  (A JSON object containing the candidate's resume data, like `skills: ["Python", "PyTorch", "CrewAI"]`, `projects: [{"name": "...", "description": "...", "tech_stack": [...]}]`, etc.)
+- **User Object:**  (A JSON object containing the candidate's resume data, like `skills: ["Python", "PyTorch", "CrewAI"]`, `projects: [{{"name": "...", "description": "...", "tech_stack": [...]}}]`, etc.)
 
 # CONSTRAINTS & RULES
 
@@ -49,54 +50,64 @@ Follow this process step-by-step:
 1.  The number of questions must be between 5 and 10.
 2.  The questions must be directly relevant to the `{interview_type}` and the candidate's specific skills and projects. Avoid generic questions if specific information is available.
 3.  Do not include any introductory or concluding text, explanations, or conversational filler.
-4.  The final output MUST be a valid JSON object.
+4.  The final output MUST be a valid list in format - ["question1", "question2" ...].
 
 # OUTPUT SPECIFICATION
-Return ONLY a raw JSON object containing a single key, `"questions"`, which holds a list of the generated question strings.
-
-**Example Output Format:**
-```json
-{{
-  "questions": [
-    "In your project utilizing the RAG pipeline, how did you approach the chunking strategy for your documents, and what impact did that have on retrieval accuracy?",
-    "You list experience with both LangChain and CrewAI. Can you compare and contrast their approaches to defining and managing agentic workflows? When would you choose one over the other?",
-    "Describe a time you had to optimize an LLM's inference speed. What specific techniques did you use, and what were the results?",
-    "Let's discuss system design. How would you architect a scalable system for fine-tuning a 7B parameter model on a new dataset, assuming you have access to a cloud environment like AWS or GCP?",
-    "Your resume mentions improving a recommendation model's performance by 15%. Walk me through the process of identifying the bottleneck and the specific changes you implemented to achieve this uplift."
-  ]
-}}
-```
+- Return ONLY a list object containing questions as instructed.
+- DO NOT include markdown formatting, code blocks, or any other text outside the list structure. Or i will KILL YOU.
 """
 
+
+def list_parser(question_list: list[str]):
+    out = []
+
+    for line in question_list:
+        if line.lstrip()[0] == ("\""):
+            out.append(line)
+
+    return out
 
 def question_maker_agent(state : Graph_state)->Graph_state:
     """ generates 10 questons and appends it ot the question list """
     user_object = state.get("user_object", None)
+    print("user_object")
     print(user_object)
-    interview_type = state.get("interview_type", None) # always fixed for now 
+    interview_type = state.get("interview_type", None) # always fixed for now
     print(interview_type)
     user_object_json_str = json.dumps(user_object, indent=2)
     full_prompt = QUESTION_MAKER_PROMPT.format(
         interview_type = interview_type,
         user_object = user_object_json_str
     )
-    messages = [SystemMessage(content=full_prompt)]
-    # chat history dosent need to be passed 
+    messages = [HumanMessage(content=full_prompt)]
+    # chat history dosent need to be passed
     print(messages)
     response = llm.invoke(messages)
+
     content = response.content.strip()
 
     print(content)
+    print(type(content))
 
-    raw_json_str = re.sub(r"^```(json)?", "", content)
-    raw_json_str = re.sub(r"```$", "", content)
+    question_list = list_parser(content.split("\n"))
+    print("Question List::", question_list)
+    # raw_json_str = re.match(r"\{(.|\s)*\}", content)
+    # print("Raw JSON String::", raw_json_str)
+    # raw_json_str = re.sub(r"```$", "", content)
+    # print("Raw JSON String::", raw_json_str)
 
-    try:
-        question_data = json.loads(raw_json_str)
-        questions = question_data.get("questions", [])
-    except json.JSONDecodeError:
-        questions = []
-    
+    # print("Raw JSON String::", raw_json_str)
+    # print("Raw JSON String::", type(raw_json_str))
+    # print("regex ::", raw_json_str.group() if raw_json_str else "No match found")
+
+    questions = question_list
+    # if raw_json_str:
+    #     question_data = json.loads(raw_json_str.group())
+    #     questions = question_data.get("questions", [])
+
+    #     print(question_data)
+    #     print(questions)
+
 
     if not questions:
         questions = []
@@ -107,7 +118,9 @@ def question_maker_agent(state : Graph_state)->Graph_state:
 
     state["question_list"] = questions
     state["current_question_index"] = 0
-    state["current_phase"] = "questioning"  # for the next phase 
+    state["current_phase"] = "questioning"  # for the next phase
     state["active_agent"] = "question_maker_agent"
 
-    return state 
+    print("Question Maker Agent::", state)
+
+    return state
