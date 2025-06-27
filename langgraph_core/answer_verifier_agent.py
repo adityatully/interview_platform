@@ -108,40 +108,44 @@ def answer_verifier_agent(state: Graph_state)->Graph_state:
         elif isinstance(msg, AIMessage):
             messages.append(AIMessage(content=msg.content))
 
+    chain = llm | parser
 
-    response = llm.invoke(messages)
-    print("LLM Response::", response.content.strip())
-    print("LLM Response::", response.content.strip()[1:-1])
+    result = {}
 
     try:
-        result = json.loads(response.content.strip()[1:-1])
-        print("RESULT::", result)
-    except json.JSONDecodeError:
+        # The 'result' will be a Python dictionary, not a string
+        result = chain.invoke(messages)
+        print("Successfully Parsed Result::", result)
+    except Exception as e:
+        # Catch potential parsing errors from the chain
+        print(f"Error parsing LLM response: {e}")
         result = {
-            "reasoning": "invalid json",
-            "verdict": "failed",
-            "feedback": "failed , proceed to next question."
+            "reasoning": "Failed to parse LLM output.",
+            "verdict": "sufficient", # Default to sufficient to move on
+            "feedback": "There was a parsing error. Proceeding to the next question."
         }
 
       # implement feedback count tooo store them for the user in the list
 
-    feedback_list.append(result["feedback"])
+    if result["verdict"] == "sufficient":
+        state["current_question_index"] += 1
+    # ----------------------
+
+    feedback_list = state.get("feedback_list", []) # Safely get the list
+    feedback_list.append(result) # Append the whole result for better history
+
     state["feedback_list"] = feedback_list
     state["feedback"] = result["feedback"]
-    state["feedback_reason"] = result["reasoning"]
+
+    # It's good practice to store all parts of the feedback
     state["previous_question"] = question_asked
-    state["previous_feedback"] = result["feedback"]
+    state["previous_feedback"] = result
 
-    if verdict == "sufficient":
-        state["current_question_index"] += 1
-
-    state["current_phase"] = "asking"
+    state["current_phase"] = "questioning" # This should probably be 'questioning' to go back to the asking agent
     state["active_agent"] = "answer_verifier_agent"
     state["final_response"] = result["feedback"]
 
-    state["messages"].append(AIMessage(content=result["feedback"]))
-    state["messages"].append(AIMessage(content=result["reasoning"]))
-    state["messages"].append(AIMessage(content=result["verdict"]))
+    state["messages"].append(AIMessage(content=f"Evaluation: {result}"))
 
     return state
 
