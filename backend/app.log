@@ -1109,3 +1109,57 @@ print(resume_data_parsed)
 2025-06-28 00:52:53 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: 
 2025-06-28 00:53:45 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: oh okay, Model: gemini-2.0-flash
 2025-06-28 00:53:48 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: 
+2025-06-28 01:18:10 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: hi, Model: gemini-2.0-flash
+2025-06-28 01:18:15 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: : {"input": "Welcome to the interview! To start, can you tell me about a time when you had to work with a difficult teammate? How did you handle the situation?", "output": "Welcome to the interview! To start, can you tell me about a time when you had to work with a difficult teammate? How did you handle the situation?"}
+2025-06-28 01:18:24 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: no, Model: gemini-2.0-flash
+2025-06-28 01:18:26 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: : {"input": "Okay, before we proceed, do you have any questions for me?", "output": "Okay, before we proceed, do you have any questions for me?"}
+2025-06-28 01:18:31 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: noo, Model: gemini-2.0-flash
+2025-06-28 01:18:33 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: : {"input": "Alright, let's move on to the next question. Describe a situation where you had to adapt to a significant change in the workplace. How did you handle it, and what did you learn from the experience?", "output": "Alright, let's move on to the next question. Describe a situation where you had to adapt to a significant change in the workplace. How did you handle it, and what did you learn from the experience?"}
+2025-06-28 01:18:44 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, User Query: I wisent able4 to handle , Model: gemini-2.0-flash
+2025-06-28 01:18:48 - INFO - root - Session ID: b2cbd31d-accb-4fab-9e89-97bf5b0b04fe, AI Response: 
+2025-06-28 01:19:26 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: hi, Model: gemini-2.0-flash
+2025-06-28 01:19:30 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: Resume parsed successfully Should we begin the interview??.
+2025-06-28 01:19:35 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: start, Model: gemini-2.0-flash
+2025-06-28 01:19:42 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: : Okay, let's start the interview. Based on your resume, I see you have experience with various technologies and projects. To begin, can you describe a challenging technical problem you faced in one of your projects and how you approached solving it?
+2025-06-28 01:19:54 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: you tell which project , Model: gemini-2.0-flash
+2025-06-28 01:19:56 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: : Ah, it looks like I jumped the gun a bit there! My apologies. Before we dive into specific projects, let's make sure we're aligned on what you want to focus on in this interview.
+
+To give you the best experience, I need you to upload your resume. This way, the AI Interviewers can ask questions specifically about YOUR projects, skills, and experience.
+
+Have you already uploaded your resume? If not, please do so, and then we can begin!
+2025-06-28 01:20:09 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: I have uploaded ', Model: gemini-2.0-flash
+2025-06-28 01:20:10 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: 
+2025-06-28 01:20:15 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: now ?, Model: gemini-2.0-flash
+2025-06-28 01:20:17 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: : Great! Now that your resume is uploaded, I can tailor the interview experience to your background.
+
+Before we start, which type of interview would you like to practice today? Here are some options:
+
+*   **DSA Coder:** For practicing data structures and algorithms questions.
+*   **System Architect:** For system design challenges.
+*   **Project Manager:** For in-depth discussions about your projects.
+*   **Tech Screener:** For questions about specific technologies (e.g., Python, React, AWS).
+*   **HR Specialist:** For behavioral and situational questions.
+
+Or, if you'd like a more general practice session, I can mix questions from different areas.
+
+What do you think?
+2025-06-28 01:20:33 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: mix , Model: gemini-2.0-flash
+2025-06-28 01:20:38 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: : Okay, a mix of questions it is! This will give you a broad practice session.
+
+To make sure I tailor the questions to the right level, could you tell me what kind of role you are interviewing for? (e.g., "Software Engineer," "Data Scientist," "Web Developer," etc.)
+2025-06-28 01:20:47 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: web developer , Model: gemini-2.0-flash
+2025-06-28 01:20:48 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: 
+2025-06-28 01:21:02 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: ask ?, Model: gemini-2.0-flash
+2025-06-28 01:21:04 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: 
+2025-06-28 01:21:46 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: I have faced a lot of issues in the question , Model: gemini-2.0-flash
+2025-06-28 01:21:51 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: 
+2025-06-28 01:22:36 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: I used it for real time communication , Model: gemini-2.0-flash
+2025-06-28 01:22:39 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: 
+2025-06-28 01:23:44 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: clerk is a auth as a third party sire which lets us autamticall have providers like oAuth really available , Model: gemini-2.0-flash
+2025-06-28 01:23:48 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: : Thanks for sharing that. Could you elaborate on how you used Clerk to differentiate authentication flows and manage permissions for artists, listeners, and societies within CampusWave? Specifically, how did you ensure that each type of user had the appropriate level of access and what challenges did you encounter in implementing this?
+2025-06-28 01:24:50 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: clerk has its own auth middleware and a user object in both frontend and backend sdk using which we can access the userId which is store in clerk for us , Model: gemini-2.0-flash
+2025-06-28 01:24:53 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: 
+2025-06-28 01:25:06 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: I dint use , Model: gemini-2.0-flash
+2025-06-28 01:25:10 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: 
+2025-06-28 01:25:55 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, User Query: meri marzi, Model: gemini-2.0-flash
+2025-06-28 01:25:58 - INFO - root - Session ID: 1c7d9818-e054-42c1-9079-778872699d0b, AI Response: 

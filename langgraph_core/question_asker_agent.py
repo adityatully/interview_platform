@@ -91,6 +91,7 @@ def question_asker_agent(state : Graph_state)->Graph_state:
 
     # Update the state with assistant reply
     state["messages"].append(AIMessage(content=assistant_reply)) 
+    print("question needs to be printed ")
     state["final_response"] = assistant_reply
     state["active_agent"] = "question_asker_agent"
     state["current_phase"] = "question asked go for evaluation"
